@@ -1,0 +1,2 @@
+// Local / simulator — override in Config/Secrets.xcconfig (gitignored) if needed.
+API_BASE_URL = https:/$()/api.usaguts.com/

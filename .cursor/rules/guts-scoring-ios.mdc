@@ -1,0 +1,8 @@
+# Guts Scoring iOS — Cursor rules
+
+- This repo is **independent** from `GutsScoring` (Android). Do not edit Android unless the user explicitly asks.
+- Read `docs/HANDOFF.md` and `docs/STATUS.md` at the start of substantial iOS work.
+- API contract: `Guts-App-V5/docs/mobile-api/openapi.yaml`; production base URL `https://api.usaguts.com`.
+- Match Android **behavior** using `docs/ANDROID_PARITY.md`; implement in Swift/SwiftUI.
+- After changing `project.yml`, remind user to run `xcodegen generate` on Mac.
+- Offline-first: local persistence before sync (mirror Android Room + outbox pattern).

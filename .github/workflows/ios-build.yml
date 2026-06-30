@@ -1,0 +1,28 @@
+name: iOS Build
+
+on:
+  push:
+    branches: [main, master, develop, 'V*']
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate Xcode project
+        run: xcodegen generate
+
+      - name: Build for Simulator
+        run: |
+          xcodebuild -project GutsScoring.xcodeproj \
+            -scheme GutsScoring \
+            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            -configuration Debug \
+            CODE_SIGNING_ALLOWED=NO \
+            build
